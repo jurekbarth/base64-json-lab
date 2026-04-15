@@ -1,5 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "name": "64-lab",
   "cleanUrls": true
 }
