@@ -1,0 +1,11 @@
+{
+  "name": "64-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small Base64 encoder and decoder for text and JSON.",
+  "scripts": {
+    "dev": "npx vercel dev",
+    "preview": "npx vercel",
+    "deploy": "npx vercel --prod"
+  }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>64 Lab</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Base64 utility</p>
+          <h1>Encode or decode text and JSON without leaving the browser.</h1>
+          <p class="hero-text">
+            Paste a Base64 payload to inspect it as text or formatted JSON, or
+            turn plain text and JSON into Base64 instantly.
+          </p>
+        </div>
+
+        <div class="hero-card">
+          <div class="stat">
+            <span class="stat-label">Mode</span>
+            <span class="stat-value" id="modeLabel">Decode</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Format</span>
+            <span class="stat-value" id="formatLabel">Auto detect</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Status</span>
+            <span class="stat-value" id="statusBadge">Ready</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="toolbar">
+          <div class="toolbar-group">
+            <span class="toolbar-label">Action</span>
+            <div class="segmented" role="tablist" aria-label="Conversion mode">
+              <button class="segment is-active" data-mode="decode" type="button">
+                Decode
+              </button>
+              <button class="segment" data-mode="encode" type="button">
+                Encode
+              </button>
+            </div>
+          </div>
+
+          <label class="select-group">
+            <span class="toolbar-label">Interpret as</span>
+            <select id="formatSelect">
+              <option value="auto">Auto detect</option>
+              <option value="text">Text</option>
+              <option value="json">JSON</option>
+            </select>
+          </label>
+
+          <div class="toolbar-actions">
+            <button class="ghost-button" id="sampleTextButton" type="button">
+              Sample text
+            </button>
+            <button class="ghost-button" id="sampleJsonButton" type="button">
+              Sample JSON
+            </button>
+            <button class="ghost-button" id="swapButton" type="button">
+              Swap
+            </button>
+            <button class="ghost-button" id="clearButton" type="button">
+              Clear
+            </button>
+          </div>
+        </section>
+
+        <section class="panes">
+          <article class="pane">
+            <div class="pane-header">
+              <div>
+                <p class="pane-label" id="inputLabel">Base64 input</p>
+                <h2>Input</h2>
+              </div>
+              <p class="pane-meta" id="inputMeta">0 characters</p>
+            </div>
+
+            <label class="sr-only" for="inputArea">Input</label>
+            <textarea
+              id="inputArea"
+              spellcheck="false"
+              placeholder="Paste Base64 here to decode it."
+            ></textarea>
+          </article>
+
+          <article class="pane">
+            <div class="pane-header">
+              <div>
+                <p class="pane-label" id="outputLabel">Decoded output</p>
+                <h2>Output</h2>
+              </div>
+              <div class="pane-meta-group">
+                <p class="pane-meta" id="outputMeta">0 characters</p>
+                <button class="copy-button" id="copyButton" type="button">
+                  Copy
+                </button>
+              </div>
+            </div>
+
+            <label class="sr-only" for="outputArea">Output</label>
+            <textarea
+              id="outputArea"
+              spellcheck="false"
+              readonly
+              placeholder="The result will appear here."
+            ></textarea>
+          </article>
+        </section>
+
+        <section class="status-panel">
+          <div>
+            <p class="status-label">Result</p>
+            <p class="status-message" id="statusMessage">
+              Enter a value to begin.
+            </p>
+          </div>
+          <div class="status-hint" id="statusHint">
+            URL-safe Base64 and whitespace are handled automatically.
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
